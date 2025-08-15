@@ -24,7 +24,7 @@ app.use(cors({
   origin: CLIENT_URL,
   credentials: true,
 }));
-app.options('*', cors({ origin: CLIENT_URL, credentials: true })); // preflight
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
 
 // ====== Webhook (si tu handler requiere raw body, mantenlo ANTES de express.json) ======
 app.post('/api/payments/webhook', payments.webhookHandler, payments.webhookEndpoint);
